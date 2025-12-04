@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>planos+formulario</title>
+    <!---- Lee Ross | 2025
+        DISPO - Gestión de aulas
+        *Partes visibles (clase main)
+            * Plano planta arriba
+                clase plantaArr
+                id plantaArriba
+            * Plano planta abajo
+                clase plantaAb
+                id plantaAbajo
+            *botones de acción
+                clase separador
+        * Formulario (clase formulario)
+
+
+        * Lógica en js
+        * Conexión a LocalStorage
+    -->
+
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="body">
+    <div class="popup invisible" id="popup"></div>
+    <!--SELECCIONADOR FECHA-->
+    <div class="separador fechaActual main">
+        <form action="#">
+            <label for="selectorFecha">día:</label>
+            <input type="date" id="selectorFecha" name="SelectorFecha">
+            <input type="submit" value="buscar" class="boton submit" id="submitFecha">
+        </form>
+    </div>
+
+    <!--PLANTAS -->
+    <div class="principal main">
+        <div class="plantas">
+            <div class="plantaArr">
+                <h2>Planta Arriba</h2>
+                <div class="planta" id="plantaArriba">
+                    <div class="clase primero" data-aula="AT5">
+                        <p>AT5</p>
+                    </div>
+                    <div class="clase segundo" data-aula="AT4">
+                        <p>AT4</p>
+                    </div>
+                    <div class="clase tercero" data-aula="A2">
+                        <p>A2</p>
+                    </div>
+                    <div class="clase cuarto" data-aula="AT3">
+                        <p>AT3</p>
+                    </div>
+                    <div class="clase segundo" data-aula="AT2">
+                        <p>AT2</p>
+                    </div>
+                    <div class="clase tercero" data-aula="A4">
+                        <p>A4</p>
+                    </div>
+                </div>
+            </div>
+            <div class="plantaAb">
+                <h2>Planta Abajo</h2>
+                <div class="planta" id="plantaAbajo">
+                    <div class="clase segundo" data-aula="AT1">
+                        <p>AT1</p>
+                    </div>
+                    <div class="clase segundo" data-aula="A1">
+                        <p>A1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="referencia">
+            <div class="colorLibres">
+                <div class="color"></div>
+                <p>Clases Libres</p>
+            </div>
+            <div class="colorOcupadas">
+                <div class="color"></div>
+                <p>Clases Ocupadas</p>
+            </div>
+        </div>
+    </div>
+
+    <!--SEPARADOR AÑADIR-->
+    <div class="separador botones main">
+        <a href="#" class="boton botonPrincipal" id="botonAnadir">Añadir registro</a>
+    </div>
+
+
+    <!--FORMULARIO-->
+    <div class="formulario invisible">
+        <div class="registro">
+            <form action="#" class="formularioGeneral" id="formularioGeneral">
+                <h2>Nuevo registro</h2>
+                <div class="seccion curso">
+                    <label for="curso">Nombre del curso:</label>
+                    <input type="text" name="curso" id="curso" required>
+                </div>
+                <div class="excepcionCurso">
+                    <span class="error invisible">nombre de curso inválido</span>
+                    <span class="obligatorio invisible">introduce el nombre del curso!</span>
+                </div>
+                <div class="seccion fechas inicio">
+                    <label for="fInicio">Fecha de inicio: </label>
+                    <input type="date" name="fInicio" id="fInicio" required>
+                </div>
+                <div class="excepcionFechaInicio">
+                    <span class="error invisible">fecha de inicio errónea</span>
+                    <span class="obligatorio invisible">introduce la fecha de inicio!</span>
+                </div>        
+                <div class="seccion fechas fin">
+                    <label for="fFin">Fecha de fin: </label>
+                    <input type="date" name="fFin" id="fFin" required>
+                </div>
+                <div class="excepcionFechaFin">
+                    <span class="error invisible">fecha de fin errónea</span>
+                    <span class="obligatorio invisible">introduce la fecha de fin!</span>
+                </div>                
+                <div class="seccion aulas">
+                    <label for="aula">Aula:</label>
+                    <select name="aula" id="aula" required>
+                        <option value="AT1">AT1</option>
+                        <option value="AT2">AT2</option>
+                        <option value="AT3">AT3</option>
+                        <option value="AT4">AT4</option>
+                        <option value="AT5">AT5</option>
+                        <option value="A1">A1</option>
+                        <option value="A2">A2</option>
+                        <option value="A4">A4</option>
+                    </select>
+                    <div class="excepcionAula">
+                        <span class="error invisible">clase ocupada en el rango de fechas seleccionado</span>
+                    </div>
+                </div>
+                <input type="submit" value="añadir" class="seccion boton submit" id="submitFormulario">
+            </form>
+        </div>
+
+
+        
+        <div class="separador botones">
+            <a href="#" class="boton botonPrincipal" id="botonVolver">Volver</a>
+        </div>
+    </div>
+
+
+
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

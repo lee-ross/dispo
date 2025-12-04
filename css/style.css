@@ -1,0 +1,340 @@
+/*-----------------------------
+DISPO - Gestión de aulas
+Lee Ross | 2025
+-------------------------------
+    1. GENERAL
+    2. PRINCIPAL
+        A. PLANTAS
+        B. REFERENCIA
+        C. POPUP
+    3. SEPARADORES
+    4. FORMULARIO
+    5. ADAPTACIONES
+-----------------------------*/
+
+
+
+/*-----------------------------
+    1. GENERAL
+-----------------------------*/
+:root{
+    /*colores generales*/
+    --cLibres: #ecd338;
+    --cOcupadas: #a09b56;
+    --cHover: #504c1b;
+
+    --cTexto: #000;
+    --cTitulos: #203d88;
+    --cFondo: #FFF;
+
+    --cSubrayado: #ecd33880;
+
+    /*excepciones*/
+    --cErrorTexto: #b80909;
+    --cErrorFondo: #b8090950;
+    --cObligatorioTexto: #d64012;
+    --cObligatorioFondo: #d6401250;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+
+    font-family: sans-serif;
+    font-size: 1rem;
+}
+
+body::selection{
+    background: var(--cSubrayado);
+}
+
+.invisible{
+    display: none !important;
+}
+
+body{
+    background: var(--cTitulos);
+    min-width: 450px;
+}
+
+/*-----------------------------
+    2. PRINCIPAL
+-----------------------------*/
+
+
+.principal{
+    background: var(--cFondo);
+    border-radius: 1rem;
+    margin: 2rem 4rem;
+    padding: 2rem;
+}
+
+    /*-------------------
+        A. PLANTAS
+    -------------------*/
+    .plantas{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .planta{
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .plantaArr{
+        flex: 2;
+    }
+    .plantaAb{
+        flex: 1;
+    }
+    .clase{
+        background: var(--cLibres);
+        height: 5rem;
+        justify-items: center;
+        align-content: center;
+    }
+
+        /*-------------------
+                CELDAS
+        -------------------*/
+        .primero{
+            grid-column: 1/2;
+        }
+
+        .segundo{
+            grid-column: 2/3;
+        }
+
+        .tercero{
+            grid-column: 3/4;
+        }
+
+        .cuarto{
+            grid-column: 4/5;
+        }
+
+        /*-------------------
+            DISPONIBILIDAD
+        -------------------*/
+        .ocupada{
+            background: var(--cOcupadas);
+        }
+
+        .libre{
+            background: var(--cLibres);
+        }
+
+        /*-------------------
+                TEXTOS
+        -------------------*/
+        .plantas h2{
+            text-align: center;
+            margin: 2rem 0 0.5rem 0;
+        }
+
+    /*-------------------
+        B. REFERENCIA
+    -------------------*/
+    .referencia{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        margin-top: 2rem;
+        gap: 1rem;
+    }
+
+    .colorLibres, .colorOcupadas{
+        display: flex;
+        flex-direction: row;
+    }
+    .color {
+        border-radius: 50%;
+        width: .8rem;
+        height: .8rem;
+        margin-right: .3rem;
+    }
+    .colorLibres > div{
+        background: var(--cLibres);
+    }
+    .colorOcupadas > div {
+        background: var(--cOcupadas);
+    }
+
+    /*-------------------
+        C. POPUP
+    -------------------*/
+    .popup{
+        position: fixed;
+        background: var(--cHover);
+        z-index: 1000;
+        padding:1rem;
+        box-sizing: content-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: visible;
+        text-align: center;
+
+        color: var(--cFondo);
+        font-size: .8rem;
+    }
+/*-----------------------------
+    3. SEPARADORES
+-----------------------------*/
+.separador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.botonPrincipal{
+    display: inline-block;
+    background: var(--cLibres);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    color: var(--cTexto);
+}
+
+.fechaActual{
+    background: var(--cFondo);
+    padding: 1rem;
+}
+
+
+/*-----------------------------
+    4. FORMULARIO
+-----------------------------*/
+.registro{
+    padding: 1rem;
+    background: var(--cFondo);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    justify-self: center;
+    margin-top: 8rem;
+    border-radius: 1rem;
+}
+
+form.formularioGeneral div{
+    padding: 0.5rem 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.formularioGeneral > .submit{
+    margin-top: 1rem;
+}
+
+.seccion {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.seccion label {
+    flex: 1;
+}
+
+.seccion input, .seccion select {
+    flex: 1;
+}
+form input, form select{
+    margin-left: 0.4rem;
+}
+
+form h2, form.formularioGeneral .submit{
+    display: block;
+    justify-self: center;
+    margin-bottom: 1rem;
+}
+
+input, select{
+    border: 1px solid var(--cTitulos);
+    border-radius: 0.2rem;
+}
+
+input.invalid, select.invalid{
+    border: .1rem solid var(--cErrorTexto);
+}
+
+input.submit{
+    border: 0;
+}
+
+select{
+    padding: 0.2rem 1rem;
+}
+
+.fechas{
+    display: flex;
+    flex-direction: row;
+}
+
+.boton{
+    padding: 0.5rem;
+}
+
+.boton:hover{
+    background: var(--cLibres);
+    opacity: 70%;
+}
+
+    /*-------------------
+        *. EXCEPCIONES
+    -------------------*/
+.excepcion *{
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: .5rem 0;
+}
+
+.excepcion .error{
+    background: var(--cErrorFondo);
+    color: var(--cErrorTexto);
+    border:.1rem solid var(--cErrorTexto);
+}
+
+.excepcion .obligatorio{
+    background: var(--cObligatorioFondo);
+    color: var(--cObligatorioTexto);
+    border:.1rem solid var(--cObligatorioTexto);
+}
+
+/*-----------------------------
+    5. ADAPTACIONES
+-----------------------------*/
+@media (min-width: 768px){
+    .plantas{
+        flex-direction: row;
+        gap: 0;
+    }
+
+    #plantaAbajo .segundo{
+        grid-column: 2/4;
+    }
+
+    .referencia{
+        flex-direction: row;
+    }
+
+    input:focus, select:focus{
+    outline: none;
+    border: 1px solid var(--cTitulos);
+    border-radius: 0.2rem;
+    box-shadow: 0 0 5px var(--cTitulos);
+}
+}
