@@ -52,6 +52,8 @@ body::selection{
 
 .invisible{
     display: none !important;
+    height: 0;
+    width: 0;
 }
 
 body{
@@ -204,6 +206,7 @@ body{
     padding: 1rem;
     border-radius: 0.5rem;
     color: var(--cTexto);
+    margin-right: 1rem;
 }
 
 .fechaActual{
@@ -236,6 +239,7 @@ form.formularioGeneral div{
 
 .formularioGeneral > .submit{
     margin-top: 1rem;
+    cursor: pointer;
 }
 
 .seccion {
@@ -295,24 +299,27 @@ select{
     /*-------------------
         *. EXCEPCIONES
     -------------------*/
-.excepcion *{
+
+
+[class^="excepcion"], [class^="excepcion"] *{
     display: block;
     width: 100%;
     text-align: center;
     padding: .5rem 0;
 }
 
-.excepcion .error{
+[class^="excepcion"] .error{
     background: var(--cErrorFondo);
     color: var(--cErrorTexto);
     border:.1rem solid var(--cErrorTexto);
 }
 
-.excepcion .obligatorio{
+[class^="excepcion"] .obligatorio{
     background: var(--cObligatorioFondo);
     color: var(--cObligatorioTexto);
     border:.1rem solid var(--cObligatorioTexto);
 }
+
 
 /*-----------------------------
     5. ADAPTACIONES

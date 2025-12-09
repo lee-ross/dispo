@@ -96,8 +96,9 @@
     <!--FORMULARIO-->
     <div class="formulario invisible">
         <div class="registro">
-            <form action="#" class="formularioGeneral" id="formularioGeneral">
+            <form action="#" class="formularioGeneral" id="formularioGeneral" novalidate>
                 <h2>Nuevo registro</h2>
+
                 <div class="seccion curso">
                     <label for="curso">Nombre del curso:</label>
                     <input type="text" name="curso" id="curso" required>
@@ -106,6 +107,7 @@
                     <span class="error invisible">nombre de curso inválido</span>
                     <span class="obligatorio invisible">introduce el nombre del curso!</span>
                 </div>
+
                 <div class="seccion fechas inicio">
                     <label for="fInicio">Fecha de inicio: </label>
                     <input type="date" name="fInicio" id="fInicio" required>
@@ -113,7 +115,8 @@
                 <div class="excepcionFechaInicio">
                     <span class="error invisible">fecha de inicio errónea</span>
                     <span class="obligatorio invisible">introduce la fecha de inicio!</span>
-                </div>        
+                </div>
+
                 <div class="seccion fechas fin">
                     <label for="fFin">Fecha de fin: </label>
                     <input type="date" name="fFin" id="fFin" required>
@@ -121,7 +124,8 @@
                 <div class="excepcionFechaFin">
                     <span class="error invisible">fecha de fin errónea</span>
                     <span class="obligatorio invisible">introduce la fecha de fin!</span>
-                </div>                
+                </div>   
+
                 <div class="seccion aulas">
                     <label for="aula">Aula:</label>
                     <select name="aula" id="aula" required>
@@ -134,10 +138,11 @@
                         <option value="A2">A2</option>
                         <option value="A4">A4</option>
                     </select>
-                    <div class="excepcionAula">
-                        <span class="error invisible">clase ocupada en el rango de fechas seleccionado</span>
-                    </div>
                 </div>
+                <div class="excepcionAula">
+                    <span class="error invisible">clase ocupada en el rango de fechas seleccionado</span>
+                </div>
+                
                 <input type="submit" value="añadir" class="seccion boton submit" id="submitFormulario">
             </form>
         </div>
@@ -150,7 +155,11 @@
     </div>
 
 
-
+    <div class="separador botones main">
+        <a href="#" class="boton botonPrincipal" id="botonExportar">Exportar</a>
+        <a href="#" class="boton botonPrincipal" id="botonImportar" accept="application/json">Importar</a>
+        <a href="#" class="boton botonPrincipal" id="botonEliminar">Eliminar</a>
+    </div>
 
 <script type="module" src="js/main.js"></script>
 </body>

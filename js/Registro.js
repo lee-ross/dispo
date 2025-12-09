@@ -21,7 +21,7 @@ export class Registro{
     #manyana = Fecha.sumarFecha(Fecha.convertirFecha(Fecha.getFechaActual()), 1)
 
     /**Obtiene los registros almacenados en `localStorage` y los convierte en `json`.
-     * Si no existen, devuelve un array vacío.*/
+     * Si no existen, declara un array vacío.*/
     #registrosActuales = JSON.parse(localStorage.getItem('registros')) || []
 
 
@@ -85,7 +85,10 @@ export class Registro{
         setAula = (aula) => this.#aula.value = aula
 
     
-    /** */
+    /**
+     * Devuelve los registros actualmente almacenados en `localStorage`
+     * @returns {JSON} los registros actuales 
+     */
     getRegistrosActuales = () => this.#registrosActuales
 
 
@@ -132,7 +135,7 @@ export class Registro{
             let relleno = true
 
             //nombre curso
-            if(!registroRelleno.nombreCurso){
+            if(!registroRelleno.nombreCurso || registroRelleno.nombreCurso == ""){
                 document.querySelector('.excepcionCurso .obligatorio').classList.remove('invisible')
                 relleno = false
             }else{
@@ -186,7 +189,7 @@ export class Registro{
                     if(Fecha.fechaEnRango(registro.fechaInicio, registroRelleno.fechaInicio, registroRelleno.fechaFin) ||
                         Fecha.fechaEnRango(registro.fechaFin, registroRelleno.fechaInicio, registroRelleno.fechaFin)){
                         
-                        document.querySelector('.seccion.aulas .error').classList.remove('invisible')
+                        document.querySelector('.excepcionAula .error').classList.remove('invisible')
                         libre = false
                         break
                     }
