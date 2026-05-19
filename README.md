@@ -1,40 +1,18 @@
 # DISPO - Gestión de aulas
 *Lee Ross | 2025*
 
-Este programa ha sido creado durante mi periodo de prácticas empresariales en la empresa **SmartMind** (InterPros)
+Este programa ha sido creado durante mi periodo de prácticas empresariales en la empresa **SmartMind** (InterPros).
 
 **Dispo** es una aplicación web destinada a la gestión eficiente de aulas de un centro educativo. Permite a miembros del comité académico consultar la disponibilidad las aulas y asignar nuevos cursos a aquellas que se encuentren libres, optimizando el uso de los espacios.
 
 
 
-
-
 Uso de la aplicación
-Visualizar disponibilidad: Al abrir la aplicación se muestra el plano de aulas con colores que indican si están libres u ocupadas.
-
-Añadir registro: Pulsar el botón Añadir registro abre el formulario.
-
-Introducir nombre del curso, fechas y aula.
-
-El sistema valida los datos y muestra mensajes de error si es necesario.
-
-Al confirmar, el registro se guarda en localStorage.
-
-Seleccionar fecha: El selector de fecha permite consultar la disponibilidad de aulas en un día concreto.
-
-Exportar/Importar:
-
-Exportar genera un archivo .json con todos los registros.
-
-Importar permite cargar registros desde un archivo externo (actualmente reemplaza los existentes, aunque puede adaptarse para fusionar).
-
-Eliminar registros: El botón Eliminar borra todos los registros almacenados.
-
-
-
-
-
-
+* Visualizar disponibilidad: Al iniciar la aplicación se muestra el plano de aulas y su disponibilidad (mediante colores de fondo)
+* Añadir registro: Abre un formulario para la introducción de una nueva clase. Recoge nombre de curso, fechas y aula. Al confirmar, Se realiza una validación de los datos que se almacenan en localStorage (o bien emite un mensaje de error).
+* Seleccionar fecha: El selector de fecha permite consultar la disponibilidad de aulas en un día concreto.
+* Exportar/Importar: Exportar genera un archivo .json con todos los registros. Importar permite cargar registros desde un archivo externo (actualmente genera una escritura absoluta, reemplazando los existentes).
+* Eliminar registros: Reseteo completo de todos los registros almacenados.
 
 
 
@@ -133,35 +111,16 @@ Dispo es una aplicación emergente en constante crecimiento. Otras futuras imple
 
     Aunque en este proyecto específico el cliente carecía de necesidad de la conexión de una Base de Datos independiente, descartándose por el uso del espacio local del servidor *localStorage*, en un futuro real sería una solución relevante a implementar, de modo que los registros se almacenarían de manera centralizada, obteniendo el porpio navegador web la información perteneciente a la ocupación de las clases a través de una conexión especializada.
 
-* **Integración de log de
+* **Integración de log de acciones**
+
+    
+  Permitiría retomar un estado posterior 
 
 * #### Pequeñas implementaciones.
 
     * Una vez seleccionada la fecha de inicio, la fecha de fin pasará a ser la del día inmediatamente siguiente (o, en su caso, podría ser relevante el paso al día LECTIVO siguiente)
 
     * Actualmente sólo es posible realizar una implementación absoluta de datos, de manera que los registros locales se sobreescriben. Podría evaluarse el caso de ofrecer también una importanción aditiva, donde los registros hallados en el archivo referneciado se evaluan frente a los registros locales para evitar su duplicado.
-
-    * 
-
-
-
-Gestión de permisos: Diferentes roles de usuario (administradores, docentes, asistentes) con permisos específicos.
-
-Conexión a base de datos externa: Sustituir localStorage por una base de datos centralizada para uso multiusuario.
-
-Integración de logs y auditoría: Registro de acciones realizadas (quién añadió, modificó o eliminó un curso).
-
-Mejoras de usabilidad:
-
-Autocompletar fechas (fin = día siguiente o siguiente lectivo).
-
-Evitar duplicados al importar registros.
-
-Interfaz responsive más avanzada.
-
-
-
-
 
 
 
