@@ -197,7 +197,7 @@ export class Registro{
             }
 
             if(libre){
-                document.querySelector('.seccion.aulas .error').classList.add('invisible')
+                document.querySelector('.excepcionAula .error').classList.add('invisible')
             }
 
         return relleno && validas && libre
